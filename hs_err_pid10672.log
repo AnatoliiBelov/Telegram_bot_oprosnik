@@ -1,0 +1,220 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 266338304 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3530), pid=10672, tid=17976
+#
+# JRE version:  (18.0.1.1+2) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (18.0.1.1+2-6, mixed mode, emulated-client, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dbot.token=6179630358:AAF3bHra7SFjDFtsNeAdxypihvybWnvLddE -XX:TieredStopAtLevel=1 -Dspring.output.ansi.enabled=always -Dcom.sun.management.jmxremote -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -javaagent:D:\Программирование\IntelliJ IDEA 2022.3\lib\idea_rt.jar=61221:D:\Программирование\IntelliJ IDEA 2022.3\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 com.example.telegrambotoprosnik.TelegramBotOprosnikApplication
+
+Host: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz, 12 cores, 15G,  Windows 10 , 64 bit Build 19041 (10.0.19041.1151)
+Time: Fri May  5 19:54:55 2023  Windows 10 , 64 bit Build 19041 (10.0.19041.1151) elapsed time: 0.011821 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001a41f4876a0):  JavaThread "Unknown thread" [_thread_in_vm, id=17976, stack(0x00000081ef200000,0x00000081ef300000)]
+
+Stack: [0x00000081ef200000,0x00000081ef300000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x69887a]
+V  [jvm.dll+0x7f38bd]
+V  [jvm.dll+0x7f51ce]
+V  [jvm.dll+0x7f5883]
+V  [jvm.dll+0x25ca3f]
+V  [jvm.dll+0x6957c9]
+V  [jvm.dll+0x68a2fa]
+V  [jvm.dll+0x321efb]
+V  [jvm.dll+0x3298d6]
+V  [jvm.dll+0x37e47e]
+V  [jvm.dll+0x37e6af]
+V  [jvm.dll+0x2f9c7a]
+V  [jvm.dll+0x2facdd]
+V  [jvm.dll+0x7c24f0]
+V  [jvm.dll+0x38b801]
+V  [jvm.dll+0x7a1203]
+V  [jvm.dll+0x40d6bf]
+V  [jvm.dll+0x40f091]
+C  [jli.dll+0x526b]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17034]
+C  [ntdll.dll+0x52651]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffca9acd550, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000001a41f4f7680 WorkerThread "GC Thread#0" [stack: 0x00000081ef300000,0x00000081ef400000] [id=6564]
+  0x000001a41f508340 ConcurrentGCThread "G1 Main Marker" [stack: 0x00000081ef400000,0x00000081ef500000] [id=8616]
+  0x000001a41f508e00 WorkerThread "G1 Conc#0" [stack: 0x00000081ef500000,0x00000081ef600000] [id=11596]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffca92fa217]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001a41f483650] Heap_lock - owner thread: 0x000001a41f4876a0
+
+Heap address: 0x0000000702600000, size: 4058 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 4 size 8 Array Of Cards #cards 16 size 48 Howl #buckets 8 coarsen threshold 3686 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 4096
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000702600000, 0x0000000800000000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffca96e0cb9]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (1 events):
+Event: 0.007 Loaded shared library C:\Program Files\Java\jdk-18.0.1.1\bin\java.dll
+
+
+Dynamic libraries:
+0x00007ff6479b0000 - 0x00007ff6479c0000 	C:\Program Files\Java\jdk-18.0.1.1\bin\java.exe
+0x00007ffcf79f0000 - 0x00007ffcf7be5000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffcb77e0000 - 0x00007ffcb77f9000 	C:\Program Files\AVAST Software\Avast\aswhook.dll
+0x00007ffcf7660000 - 0x00007ffcf771d000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffcf5120000 - 0x00007ffcf53e9000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffcf5950000 - 0x00007ffcf5a50000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffcf24c0000 - 0x00007ffcf24d8000 	C:\Program Files\Java\jdk-18.0.1.1\bin\jli.dll
+0x00007ffce93d0000 - 0x00007ffce93ea000 	C:\Program Files\Java\jdk-18.0.1.1\bin\VCRUNTIME140.dll
+0x00007ffcf7830000 - 0x00007ffcf78dc000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffcf69e0000 - 0x00007ffcf6a7e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffcf78e0000 - 0x00007ffcf797b000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffcf6aa0000 - 0x00007ffcf6bca000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffcf5b00000 - 0x00007ffcf5ca0000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffcf5470000 - 0x00007ffcf5492000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffcf4530000 - 0x00007ffcf47ca000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ffcf7980000 - 0x00007ffcf79aa000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffcf5550000 - 0x00007ffcf565b000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffcf56f0000 - 0x00007ffcf578d000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffcf1e60000 - 0x00007ffcf1e6a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffcf7800000 - 0x00007ffcf7830000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffcf2580000 - 0x00007ffcf258c000 	C:\Program Files\Java\jdk-18.0.1.1\bin\vcruntime140_1.dll
+0x00007ffcc6c10000 - 0x00007ffcc6c9d000 	C:\Program Files\Java\jdk-18.0.1.1\bin\msvcp140.dll
+0x00007ffca8ff0000 - 0x00007ffca9c00000 	C:\Program Files\Java\jdk-18.0.1.1\bin\server\jvm.dll
+0x00007ffcf6c30000 - 0x00007ffcf6c38000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffcde740000 - 0x00007ffcde749000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffce0540000 - 0x00007ffce0567000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffcf6fa0000 - 0x00007ffcf700b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffcf3390000 - 0x00007ffcf33a2000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffcf2510000 - 0x00007ffcf251a000 	C:\Program Files\Java\jdk-18.0.1.1\bin\jimage.dll
+0x00007ffcf4b90000 - 0x00007ffcf4d74000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffcf48f0000 - 0x00007ffcf491c000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffcf5660000 - 0x00007ffcf56e3000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffcf2550000 - 0x00007ffcf255e000 	C:\Program Files\Java\jdk-18.0.1.1\bin\instrument.dll
+0x00007ffce16e0000 - 0x00007ffce1705000 	C:\Program Files\Java\jdk-18.0.1.1\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-18.0.1.1\bin;C:\WINDOWS\SYSTEM32;C:\Program Files\AVAST Software\Avast;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e;C:\Program Files\Java\jdk-18.0.1.1\bin\server
+
+VM Arguments:
+jvm_args: -Dbot.token=6179630358:AAF3bHra7SFjDFtsNeAdxypihvybWnvLddE -XX:TieredStopAtLevel=1 -Dspring.output.ansi.enabled=always -Dcom.sun.management.jmxremote -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -javaagent:D:\Программирование\IntelliJ IDEA 2022.3\lib\idea_rt.jar=61221:D:\Программирование\IntelliJ IDEA 2022.3\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 
+java_command: com.example.telegrambotoprosnik.TelegramBotOprosnikApplication
+java_class_path (initial): C:\Users\1317410\IdeaProjects\Telegram-Bot-Oprosnik\target\classes;C:\Users\1317410\.m2\repository\org\springframework\boot\spring-boot-starter\3.0.6\spring-boot-starter-3.0.6.jar;C:\Users\1317410\.m2\repository\org\springframework\boot\spring-boot\3.0.6\spring-boot-3.0.6.jar;C:\Users\1317410\.m2\repository\org\springframework\spring-context\6.0.8\spring-context-6.0.8.jar;C:\Users\1317410\.m2\repository\org\springframework\spring-expression\6.0.8\spring-expression-6.0.8.jar;C:\Users\1317410\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.0.6\spring-boot-autoconfigure-3.0.6.jar;C:\Users\1317410\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.0.6\spring-boot-starter-logging-3.0.6.jar;C:\Users\1317410\.m2\repository\ch\qos\logback\logback-classic\1.4.7\logback-classic-1.4.7.jar;C:\Users\1317410\.m2\repository\ch\qos\logback\logback-core\1.4.7\logback-core-1.4.7.jar;C:\Users\1317410\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.19.0\log4j-to-slf4j-2.19.0.jar;C:\Users\1317410\.m2\repository\org\apache\logging\log4j\log4j-api\2.19.0\log4j-api-2.19.0.jar;C:\Users\1317410\.m2\repository\org\slf4j\jul-to-slf4j\2.0.7\jul-to-slf4j-2.0.7.jar;C:\Users\1317410\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\1317410\.m2\repository\org\springframework\spring-core\6.0.8\spring-core-6.0.8.jar;C:\Users\1317410\.m2\repository\org\springframework\spring-jcl\6.0.8\spring-jcl-6.0.8.jar;C:\Users\1317410\.m2\repository\org\yaml\snakeyaml\1.33\snakeyaml-1.33.jar;C:\Users\1317410\.m2\repository\com\github\pengrad\java-telegram-bot-api\6.6.1\java-telegram-bot-api-6.6.1.jar;C:\Users\1317410\.m2\repository\com\google\code\gson\gson\2.9.1\gson-2.9.1.jar;C:\Users\1317410\.m2\repository\com\squareup\okhttp3\okhttp\4.10.0\okhttp-4.10.0.jar;C:\Users\1317410\.m2\repository\com\squareup\okio\okio-jvm\3.0.0\okio-jvm-3.0.0.jar;C:\Users\1317410\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.7.22\kotlin-stdlib-common-1.7.22.jar;C:\Users\1317410\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.7.22\kotlin-stdlib-1.7.22.jar;C:\Users\1317410\.m2\repository\org\jetbrains\annotations\13.0\annotations-13.0.jar;C:\Users\1317410\.m2\repository\com\squareup\okhttp3\logging-interceptor\4.10.0\logging-interceptor-4.10.0.jar;C:\Users\1317410\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.7.22\kotlin-stdlib-jdk8-1.7.22.jar;C:\Users\1317410\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.7.22\kotlin-stdlib-jdk7-1.7.22.jar;C:\Users\1317410\.m2\repository\org\telegram\telegrambots\5.1.1\telegrambots-5.1.1.jar;C:\Users\1317410\.m2\repository\org\telegram\telegrambots-meta\5.1.1\telegrambots-meta-5.1.1.jar;C:\Users\1317410\.m2\repository\com\google\guava\guava\30.0-jre\guava-30.0-jre.jar;C:\Users\1317410\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\1317410\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\1317410\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\1317410\.m2\repository\com\google\errorprone\error_prone_annotations\2.3.4\error_prone_annotations-2.3.4.jar;C:\Users\1317410\.m2\repository\com\google\j2objc\j2objc-annotations\1.3\j2objc-annotations-1.3.jar;C:\Users\1317410\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.14.2\jackson-annotations-2.14.2.jar;C:\Users\1317410\.m2\repository\com\fasterxml\jackson\jaxrs\jackson-jaxrs-json-provider\2.14.2\jackson-jaxrs-json-provider-2.14.2.jar;C:\Users\1317410\.m2\repository\com\fasterxml\jackson\jaxrs\jackson-jaxrs-base\2.14.2\jackson-jaxrs-base-2.14.2.jar;C:\Users\1317410\.m2\repository\com\fasterxml\jackson\module\jackson-module-jaxb-annotations\2.14.2\jackson-module-jaxb-annotations-2.14.2.jar;C:\Users\1317410\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.14.2\jackson-core-2.14.2.jar;C:\Users\1317410\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.1\jakarta.activation-api-2.1.1.jar;C:\Users\1317410\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.14.2\jackson-databind-2.14.2.jar;C:\Users\1317410\.m2\repository\org\glassfish\jersey\inject\jersey-hk2\3.1.1\jersey-hk2-3.1.1.jar;C:\Users\1317410\.m2\repository\org\glassfish\jersey\core\jersey-common\3.1.1\jersey-common-3.1.1.jar;C:\Users\1317410\.m2\repository\org\glassfish\hk2\osgi-resource-locator\1.0.3\osgi-resource-locator-1.0.3.jar;C:\Users\1317410\.m2\repository\org\glassfish\hk2\hk2-locator\3.0.3\hk2-locator-3.0.3.jar;C:\Users\1317410\.m2\repository\org\glassfish\hk2\external\aopalliance-repackaged\3.0.3\aopalliance-repackaged-3.0.3.jar;C:\Users\1317410\.m2\repository\org\glassfish\hk2\hk2-api\3.0.3\hk2-api-3.0.3.jar;C:\Users\1317410\.m2\repository\org\glassfish\hk2\hk2-utils\3.0.3\hk2-utils-3.0.3.jar;C:\Users\1317410\.m2\repository\org\javassist\javassist\3.29.0-GA\javassist-3.29.0-GA.jar;C:\Users\1317410\.m2\repository\org\glassfish\jersey\media\jersey-media-json-jackson\3.1.1\jersey-media-json-jackson-3.1.1.jar;C:\Users\1317410\.m2\repository\org\glassfish\jersey\ext\jersey-entity-filtering\3.1.1\jersey-entity-filtering-3.1.1.jar;C:\Users\1317410\.m2\repository\com\fasterxml\jackson\module\jackson-module-jakarta-xmlbind-annotations\2.14.2\jackson-module-jakarta-xmlbind-annotations-2.14.2.jar;C:\Users\1317410\.m2\repository\org\glassfish\jersey\containers\jersey-container-grizzly2-http\3.1.1\jersey-container-grizzly2-http-3.1.1.jar;C:\Users\1317410\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\1317410\.m2\repository\org\glassfish\grizzly\grizzly-http-server\4.0.0\grizzly-http-server-4.0.0.jar;C:\Users\1317410\.m2\repository\org\glassfish\grizzly\grizzly-http\4.0.0\grizzly-http-4.0.0.jar;C:\Users\1317410\.m2\repository\org\glassfish\grizzly\grizzly-framework\4.0.0\grizzly-framework-4.0.0.jar;C:\Users\1317410\.m2\repository\jakarta\ws\rs\jakarta.ws.rs-api\3.1.0\jakarta.ws.rs-api-3.1.0.jar;C:\Users\1317410\.m2\repository\org\glassfish\jersey\core\jersey-server\3.1.1\jersey-server-3.1.1.jar;C:\Users\1317410\.m2\repository\org\glassfish\jersey\core\jersey-client\3.1.1\jersey-client-3.1.1.jar;C:\Users\1317410\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\1317410\.m2\repository\org\json\json\20180813\json-20180813.jar;C:\Users\1317410\.m2\repository\org\apache\httpcomponents\httpclient\4.5.14\httpclient-4.5.14.jar;C:\Users\1317410\.m2\repository\org\apache\httpcomponents\httpcore\4.4.16\httpcore-4.4.16.jar;C:\Users\1317410\.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;C:\Users\1317410\.m2\repository\org\apache\httpcomponents\httpmime\4.5.14\httpmime-4.5.14.jar;C:\Users\1317410\.m2\repository\commons-io\commons-io\2.8.0\commons-io-2.8.0.jar;C:\Users\1317410\.m2\repository\org\slf4j\slf4j-api\2.0.7\slf4j-api-2.0.7.jar;C:\Users\1317410\.m2\repository\org\springframework\boot\spring-boot-devtools\3.0.6\spring-boot-devtools-3.0.6.jar;C:\Users\1317410\.m2\repository\org\projectlombok\lombok\1.18.26\lombok-1.18.26.jar;C:\Users\1317410\.m2\repository\org\postgresql\postgresql\42.5.4\postgresql-42.5.4.jar;C:\Users\1317410\.m2\repository\org\checkerframework\checker-qual\3.5.0\checker-qual-3.5.0.jar;C:\Users\1317410\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.0.6\spring-boot-starter-data-jpa-3.0.6.jar;C:\Users\1317410\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.0.6\spring-boot-starter-aop-3.0.6.jar;C:\Users\1317410\.m2\repository\org\springframework\spring-aop\6.0.8\spring-aop-6.0.8.jar;C:\Users\1317410\.m2\repository\org\aspectj\aspectjweaver\1.9.19\aspectjweaver-1.9.19.jar;C:\Users\1317410\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.0.6\spring-boot-starter-jdbc-3.0.6.jar;C:\Users\1317410\.m2\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;C:\Users\1317410\.m2\repository\org\springframework\spring-jdbc\6.0.8\spring-jdbc-6.0.8.jar;C:\Users\1317410\.m2\repository\org\hibernate\orm\hibernate-core\6.1.7.Final\hibernate-core-6.1.7.Final.jar;C:\Users\1317410\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\1317410\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\1317410\.m2\repository\org\jboss\logging\jboss-logging\3.5.0.Final\jboss-logging-3.5.0.Final.jar;C:\Users\1317410\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\1317410\.m2\repository\org\jboss\jandex\2.4.2.Final\jandex-2.4.2.Final.jar;C:\Users\1317410\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\1317410\.m2\repository\net\bytebuddy\byte-buddy\1.12.23\byte-buddy-1.12.23.jar;C:\Users\1317410\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.2\jaxb-runtime-4.0.2.jar;C:\Users\1317410\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.2\jaxb-core-4.0.2.jar;C:\Users\1317410\.m2\repository\org\eclipse\angus\angus-activation\2.0.0\angus-activation-2.0.0.jar;C:\Users\1317410\.m2\repository\org\glassfish\jaxb\txw2\4.0.2\txw2-4.0.2.jar;C:\Users\1317410\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.1\istack-commons-runtime-4.1.1.jar;C:\Users\1317410\.m2\repository\org\antlr\antlr4-runtime\4.10.1\antlr4-runtime-4.10.1.jar;C:\Users\1317410\.m2\repository\org\springframework\data\spring-data-jpa\3.0.5\spring-data-jpa-3.0.5.jar;C:\Users\1317410\.m2\repository\org\springframework\data\spring-data-commons\3.0.5\spring-data-commons-3.0.5.jar;C:\Users\1317410\.m2\repository\org\springframework\spring-orm\6.0.8\spring-orm-6.0.8.jar;C:\Users\1317410\.m2\repository\org\springframework\spring-tx\6.0.8\spring-tx-6.0.8.jar;C:\Users\1317410\.m2\repository\org\springframework\spring-beans\6.0.8\spring-beans-6.0.8.jar;C:\Users\1317410\.m2\repository\org\springframework\spring-aspects\6.0.8\spring-aspects-6.0.8.jar;C:\Users\1317410\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.0\jakarta.xml.bind-api-4.0.0.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 10                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 266338304                                 {product} {ergonomic}
+     bool ManagementServer                         = true                                      {product} {command line}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4255121408                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 0                                      {pd product} {ergonomic}
+     bool ProfileInterpreter                       = false                                  {pd product} {command line}
+    uintx ProfiledCodeHeapSize                     = 0                                      {pd product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4255121408                             {manageable} {ergonomic}
+     intx TieredStopAtLevel                        = 1                                         {product} {command line}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+PATH=C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;D:\Программирование\Git\cmd;C:\Users\1317410\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;
+USERNAME=1317410
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.1151)
+OS uptime: 8 days 7:39 hours
+
+CPU: total 12 (initial active 12) (6 cores per cpu, 2 threads per core) family 6 model 158 stepping 10 microcode 0xde, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, fma, vzeroupper, clflush, clflushopt
+
+Memory: 4k page, system-wide physical 16229M (3534M free)
+TotalPageFile size 19153M (AvailPageFile size 215M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 59M, peak: 313M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (18.0.1.1+2-6) for windows-amd64 JRE (18.0.1.1+2-6), built on Apr 25 2022 21:53:15 by "mach5one" with MS VC++ 16.8 / 16.9 (VS2019)
+
+END.
