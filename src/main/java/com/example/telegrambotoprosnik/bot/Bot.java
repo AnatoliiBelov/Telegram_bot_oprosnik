@@ -253,6 +253,7 @@ public class Bot implements UpdatesListener {
         contextService.saveContext(context);
         DataBaseQuestionnaire question = checkRepeatingQuestion(context, theme, level);
 
+
         if (context.getQuestionNumber() == 2) {
             context.setAnswer1(message);
             context.setQuestion2(question.getQuestion());
